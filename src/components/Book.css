@@ -1,0 +1,7 @@
+.Book-container {
+  display: flex;
+  justify-content: center;
+}
+.mb-3 {
+  max-width: 540px;
+}

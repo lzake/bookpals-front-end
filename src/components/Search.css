@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+.Search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.submit {
+  width: 10.5rem;
+}
+.label {
+  text-align: center;
+}
