@@ -14,6 +14,7 @@ class Search extends Component {
       bookDescription: "",
       bookAuthor: "",
       bookPublisher: "",
+      bookImage: false,
       bookContainer: "hide"
     };
 
@@ -52,6 +53,7 @@ class Search extends Component {
           this.setState({ bookAuthor: bookInfo.author });
           this.setState({ bookDescription: bookInfo.description });
           this.setState({ bookPublisher: bookInfo.publisher });
+          this.setState({ bookImage: bookInfo.image });
           this.setState({ bookContainer: "Book-container" });
         });
     } else if (this.state.author !== "") {
@@ -64,6 +66,7 @@ class Search extends Component {
           this.setState({ bookAuthor: bookInfo.author });
           this.setState({ bookDescription: bookInfo.description });
           this.setState({ bookPublisher: bookInfo.publisher });
+          this.setState({ bookImage: bookInfo.image });
           this.setState({ bookContainer: "Book-container" });
         });
     } else if (this.state.publisher !== "") {
@@ -76,6 +79,7 @@ class Search extends Component {
           this.setState({ bookAuthor: bookInfo.author });
           this.setState({ bookDescription: bookInfo.description });
           this.setState({ bookPublisher: bookInfo.publisher });
+          this.setState({ bookImage: bookInfo.image });
           this.setState({ bookContainer: "Book-container" });
         });
     } else {
@@ -126,6 +130,11 @@ class Search extends Component {
             author={this.state.bookAuthor}
             description={this.state.bookDescription}
             publisher={this.state.bookPublisher}
+            src={
+              this.state.bookImage
+                ? this.state.bookImage
+                : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
+            }
           ></Book>
         </div>
       </div>

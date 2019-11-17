@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Edit.css";
-
+import Search from "./Search.js";
+import axios from "axios";
 class Edit extends Component {
   constructor(props) {
     super(props);
@@ -25,39 +26,68 @@ class Edit extends Component {
     this.imageChange = this.imageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   changeOption(evt) {
     this.setState({ valueSelect: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
   titleChange(evt) {
     this.setState({ bookTitle: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
   descChange(evt) {
     this.setState({ bookDesc: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
   authorChange(evt) {
     this.setState({ bookAuthor: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
   publisherChange(evt) {
     this.setState({ bookPublisher: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
   isbn10Change(evt) {
     this.setState({ bookIsbn10: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
   isbn13Change(evt) {
     this.setState({ bookIsbn13: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
   imageChange(evt) {
     this.setState({ bookImage: evt.target.value });
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
   }
-  handleSubmit() {}
+  handleSubmit(evt) {
+    if (
+      this.state.bookTitle !== "" &&
+      this.state.bookAuthor !== "" &&
+      this.state.bookPublisher !== "" &&
+      this.state.bookDesc !== "" &&
+      this.state.bookIsbn10 !== "" &&
+      this.state.bookIsbn13 !== "" &&
+      this.state.bookImage !== ""
+    ) {
+      console.log("Good Job!");
+      axios
+        .post("http://localhost:8080/books", {
+          title: this.state.bookTitle,
+          description: this.state.bookDesc,
+          author: this.state.bookAuthor,
+
+          publisher: this.state.bookPublisher,
+          isbns: [
+            { isbn10: this.state.bookIsbn10, isbn13: this.state.bookIsbn13 }
+          ],
+          image: this.state.bookImage
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    } else {
+      alert("Please Complete All Fields Before Submission");
+    }
+  }
   render() {
     if (this.state.valueSelect === "Select") {
       return (
@@ -73,14 +103,14 @@ class Edit extends Component {
               >
                 <option>Select</option>
                 <option>Add Book to Database</option>
-                <option>Edit Info of Book in the Database </option>
+                <option>Edit Info of Book in the Database</option>
                 <option>Delete Book from Database</option>
               </select>
             </div>
           </form>
         </div>
       );
-    } else {
+    } else if (this.state.valueSelect === "Add Book to Database") {
       return (
         <div>
           <form className="form">
@@ -185,6 +215,58 @@ class Edit extends Component {
               type="submit"
             />
           </form>
+        </div>
+      );
+    } else if (this.state.valueSelect === "Edit Info of Book in the Database") {
+      return (
+        <div>
+          <form className="form">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect1">Select</label>
+              <select
+                value={this.state.valueSelect}
+                className="form-control"
+                id="exampleFormControlSelect1"
+                onChange={this.changeOption}
+              >
+                <option>Select</option>
+                <option>Add Book to Database</option>
+                <option>Edit Info of Book in the Database</option>
+                <option>Delete Book from Database</option>
+              </select>
+            </div>
+          </form>
+
+          <Search className="search"></Search>
+          <div className="button-container">
+            <button className="button">Edit Book Info</button>
+          </div>
+        </div>
+      );
+    } else if (this.state.valueSelect === "Delete Book from Database") {
+      return (
+        <div>
+          <form className="form">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect1">Select</label>
+              <select
+                value={this.state.valueSelect}
+                className="form-control"
+                id="exampleFormControlSelect1"
+                onChange={this.changeOption}
+              >
+                <option>Select</option>
+                <option>Add Book to Database</option>
+                <option>Edit Info of Book in the Database</option>
+                <option>Delete Book from Database</option>
+              </select>
+            </div>
+          </form>
+
+          <Search></Search>
+          <div className="button-container">
+            <button className="button">Delete Book</button>
+          </div>
         </div>
       );
     }

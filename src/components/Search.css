@@ -14,7 +14,7 @@
   justify-content: center;
 }
 .hide {
-  opacity: 0;
+  display: none;
 }
 .Book-container {
   margin: 2rem;
