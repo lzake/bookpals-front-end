@@ -12,7 +12,9 @@ class Search extends Component {
       publisher: "",
       bookTitle: "",
       bookDescription: "",
-      bookAuthor: ""
+      bookAuthor: "",
+      bookPublisher: "",
+      bookContainer: "hide"
     };
 
     this.changeTitle = this.changeTitle.bind(this);
@@ -42,13 +44,15 @@ class Search extends Component {
         .get(`http://localhost:8080/books/title/${this.state.title}`)
         .then(res => {
           let bookInfo = res.data[0];
-          //   console.log(bookInfo.title);
-          //   console.log(bookInfo.author);
-          //   console.log(bookInfo.description);
-          //   console.log(bookInfo.publisher);
+          console.log(bookInfo.title);
+          console.log(bookInfo.author);
+          console.log(bookInfo.description);
+          console.log(bookInfo.publisher);
           this.setState({ bookTitle: bookInfo.title });
           this.setState({ bookAuthor: bookInfo.author });
           this.setState({ bookDescription: bookInfo.description });
+          this.setState({ bookPublisher: bookInfo.publisher });
+          this.setState({ bookContainer: "Book-container" });
         });
     } else if (this.state.author !== "") {
       axios
@@ -59,8 +63,21 @@ class Search extends Component {
           this.setState({ bookTitle: bookInfo.title });
           this.setState({ bookAuthor: bookInfo.author });
           this.setState({ bookDescription: bookInfo.description });
+          this.setState({ bookPublisher: bookInfo.publisher });
+          this.setState({ bookContainer: "Book-container" });
         });
-    } else if (this.state.author !== "") {
+    } else if (this.state.publisher !== "") {
+      axios
+        .get(`http://localhost:8080/books/publisher/${this.state.publisher}`)
+        .then(res => {
+          let bookInfo = res.data[0];
+          console.log(bookInfo);
+          this.setState({ bookTitle: bookInfo.title });
+          this.setState({ bookAuthor: bookInfo.author });
+          this.setState({ bookDescription: bookInfo.description });
+          this.setState({ bookPublisher: bookInfo.publisher });
+          this.setState({ bookContainer: "Book-container" });
+        });
     } else {
       alert("Please enter a valid search term");
     }
@@ -69,29 +86,48 @@ class Search extends Component {
   render() {
     return (
       <div className="Search-container">
-        <form className="form" action="">
-          <label className="label" htmlFor="">
-            Titles <br />
-            <input type="text" onChange={this.changeTitle} />
-          </label>
-          <br />
-          <label className="label" htmlFor="">
-            Authors <br />
-            <input type="text" onChange={this.changeAuthor} />
-          </label>
-          <br />
-          <label className="label" htmlFor="">
-            Publishers <br />
-            <input type="text" onChange={this.changePublisher} />
-          </label>
-          <br />
-          <input className="submit" onClick={this.handleSubmit} type="submit" />
-        </form>
-        <Book
-          title={this.state.bookTitle}
-          author={this.state.bookAuthor}
-          description={this.state.bookDescription}
-        ></Book>
+        <div className="intro">
+          <h3>Welcome to the Search Page</h3>
+          <p>
+            To search for a book in our database, search by title, author, or
+            publisher.{" "}
+          </p>
+        </div>
+
+        <div className="Form-container">
+          <form className="form" action="">
+            <label className="label" htmlFor="">
+              Titles <br />
+              <input type="text" onChange={this.changeTitle} />
+              <h6>OR</h6>
+            </label>
+            <br />
+            <label className="label" htmlFor="">
+              Authors <br />
+              <input type="text" onChange={this.changeAuthor} />
+              <h6>OR</h6>
+            </label>
+            <br />
+            <label className="label" htmlFor="">
+              Publishers <br />
+              <input type="text" onChange={this.changePublisher} />
+            </label>
+            <br />
+            <input
+              className="submit"
+              onClick={this.handleSubmit}
+              type="submit"
+            />
+          </form>
+        </div>
+        <div className={this.state.bookContainer}>
+          <Book
+            title={this.state.bookTitle}
+            author={this.state.bookAuthor}
+            description={this.state.bookDescription}
+            publisher={this.state.bookPublisher}
+          ></Book>
+        </div>
       </div>
     );
   }

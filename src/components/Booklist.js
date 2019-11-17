@@ -10,10 +10,8 @@ class Booklist extends Component {
       data: [],
       googleThumbnail: []
     };
-    this.showBooks = this.showBooks.bind(this);
   }
-
-  showBooks() {
+  componentDidMount() {
     let myUrl = "";
     if (process.env.NODE_ENV === "production") {
       myUrl = process.env.DB_URL;
@@ -24,13 +22,14 @@ class Booklist extends Component {
     axios
       .get(myUrl)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         bookData = res.data;
         this.setState({ data: bookData });
+        console.log(res.data);
       })
+
       .catch(err => {
         console.log(`Something is wrong ${err}`);
-        bookData = localStorage.getItem(myUrl);
       });
   }
 
@@ -44,15 +43,16 @@ class Booklist extends Component {
               title={item.title}
               author={item.author}
               description={item.description}
-              // src="http://www.thepurposeisprofit.com/wp-content/uploads/2014/04/0530_WVlibraries.jpg"
+              publisher={item.publisher}
+              src={
+                item.image
+                  ? item.image
+                  : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
+              }
             ></Book>
           );
         })}
-        <div className="button-container">
-          <button className="btn btn-primary btn-lg" onClick={this.showBooks}>
-            See All Our Books
-          </button>
-        </div>
+        <div className="button-container"></div>
       </div>
     );
   }

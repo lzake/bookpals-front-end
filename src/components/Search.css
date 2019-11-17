@@ -1,11 +1,24 @@
 * {
   box-sizing: border-box;
 }
-.Search-container {
+.intro {
+  text-align: center;
+}
+.Form-container {
   display: flex;
   justify-content: center;
 }
-
+.Search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hide {
+  opacity: 0;
+}
+.Book-container {
+  margin: 2rem;
+}
 .submit {
   width: 10.5rem;
 }
