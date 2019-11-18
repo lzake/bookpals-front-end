@@ -2,3 +2,12 @@
   display: flex;
   justify-content: center;
 }
+.Booklist-container {
+  padding-top: 2rem;
+}
+.book-container {
+  margin: 10rem;
+}
+.hide {
+  display: none;
+}

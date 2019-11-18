@@ -14,3 +14,17 @@
 .search {
   height: 500px;
 }
+.button {
+  margin: 5rem;
+}
+
+.text-area-container {
+  margin: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 18rem;
+}
+.form-field-container {
+  margin-top: 5rem;
+}

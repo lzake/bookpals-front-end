@@ -91,7 +91,6 @@ class Search extends Component {
     return (
       <div className="Search-container">
         <div className="intro">
-          <h3>Welcome to the Search Page</h3>
           <p>
             To search for a book in our database, search by title, author, or
             publisher.{" "}
@@ -99,30 +98,24 @@ class Search extends Component {
         </div>
 
         <div className="Form-container">
-          <form className="form" action="">
-            <label className="label" htmlFor="">
-              Titles <br />
-              <input type="text" onChange={this.changeTitle} />
-              <h6>OR</h6>
-            </label>
-            <br />
-            <label className="label" htmlFor="">
-              Authors <br />
-              <input type="text" onChange={this.changeAuthor} />
-              <h6>OR</h6>
-            </label>
-            <br />
-            <label className="label" htmlFor="">
-              Publishers <br />
-              <input type="text" onChange={this.changePublisher} />
-            </label>
-            <br />
-            <input
-              className="submit"
-              onClick={this.handleSubmit}
-              type="submit"
-            />
-          </form>
+          <label className="label" htmlFor="">
+            Titles <br />
+            <input type="text" onChange={this.changeTitle} />
+            <h6>OR</h6>
+          </label>
+          <br />
+          <label className="label" htmlFor="">
+            Authors <br />
+            <input type="text" onChange={this.changeAuthor} />
+            <h6>OR</h6>
+          </label>
+          <br />
+          <label className="label" htmlFor="">
+            Publishers <br />
+            <input type="text" onChange={this.changePublisher} />
+          </label>
+          <br />
+          <input className="submit" onClick={this.handleSubmit} type="submit" />
         </div>
         <div className={this.state.bookContainer}>
           <Book
