@@ -1,6 +1,25 @@
-
-
-
-
-
-
+.intro-container {
+  background: lightblue;
+  margin: 1rem;
+  border-radius: 1rem;
+  padding: 5rem 10rem;
+}
+.quote-container {
+  background: lightblue;
+  margin: 1rem;
+  border-radius: 1rem;
+  padding: 5rem 15rem;
+}
+.carousel {
+  width: 500px;
+  height: 100px;
+}
+.home-cover-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.d-block {
+  width: 400px;
+  height: 500px;
+}

@@ -1,25 +1,19 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Book-pals-container {
+  background: url(./book-banner.jpg);
+  height: 20vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #09d3ac;
+  justify-content: left;
+  align-items: flex-end;
 }
-.color {
-  color: #08997c;
+.cover {
+  background: black;
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+  display: flex;
+  align-items: flex-end;
+}
+.Book-pals-title {
+  color: gray;
 }
