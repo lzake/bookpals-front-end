@@ -148,31 +148,34 @@ class Edit extends Component {
 
   editBookByTitle(evt) {
     console.log("This is working");
-    if (this.state.title) {
-      axios
-        .put(
-          `http://localhost:8080/books/title/${this.state.title}`,
-          this.state.valueText,
-          { headers: { "Content-Type": "multipart/form-data" } }
-        )
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-      // axios
-      //   .put(
-      //     `http://localhost:8080/books/title/${this.state.title}`,
-      //     this.state.valueText
-      //   )
-      //   .then(res => console.log(res))
-      //   .catch(err => console.log(err));
-      // axios
-      //   .put(
-      //     `http://localhost:8080/books/title/${this.state.title}`,
-      //     this.state.valueText,
-      //     { new: true }
-      //   )
-      //   .then(res => console.log(res))
-      //   .catch(err => console.log(err));
-    }
+    axios
+      .put(`http://localhost:8080/books/title/${this.state.bookTitle}`, {
+        title: this.state.bookTitle,
+        description: this.state.bookDesc,
+        author: this.state.bookAuthor,
+        publisher: this.state.bookPublisher,
+        isbns: [
+          { isbn10: this.state.bookIsbn10, isbn13: this.state.bookIsbn13 }
+        ],
+        image: this.state.bookImage
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    // axios
+    //   .put(
+    //     `http://localhost:8080/books/title/${this.state.title}`,
+    //     this.state.valueText
+    //   )
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err));
+    // axios
+    //   .put(
+    //     `http://localhost:8080/books/title/${this.state.title}`,
+    //     this.state.valueText,
+    //     { new: true }
+    //   )
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err));
   }
   submit() {
     if (this.state.title !== "") {
@@ -190,6 +193,9 @@ class Edit extends Component {
           this.setState({ bookPublisher: bookInfo.publisher });
           this.setState({ bookImage: bookInfo.image });
           this.setState({ bookContainer: "book-container" });
+          this.setState({ bookIsbn13: bookInfo.isbns[0].isbn13 });
+          this.setState({ bookIsbn10: bookInfo.isbns[0].isbn10 });
+          this.setState({ bookDesc: bookInfo.description });
           this.setState({ title: "" });
           alert("Success!");
         });
@@ -357,19 +363,89 @@ class Edit extends Component {
             author={this.state.author}
             publisher={this.state.publisher}
             buttonClass={this.state.buttonClass}
+            submit={this.submit}
           ></Searchbar>
           <form>
-            <div className="form-group text-area-container">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Title</label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Title of Book"
+                value={this.state.bookTitle}
+                onChange={this.titleChange}
+              />
+            </div>
+            <div className="form-group">
               <label htmlFor="exampleFormControlTextarea1">
-                Example textarea
+                Description of Book
               </label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
                 rows="3"
-                value={this.state.valueText}
-                onChange={this.changeText}
+                value={this.state.bookDesc}
+                onChange={this.descChange}
+                placeholder="Description of Book"
               ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Author</label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Author of Book"
+                value={this.state.bookAuthor}
+                onChange={this.authorChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Publisher</label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Publishing Company of Book"
+                value={this.state.bookPublisher}
+                onChange={this.publisherChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">isbn10</label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="10 Digit isbn Number"
+                value={this.state.bookIsbn10}
+                onChange={this.isbn10Change}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">isbn13</label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="13 Digit isbn Number"
+                value={this.state.bookIsbn13}
+                onChange={this.isbn13Change}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">
+                Image url Address
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="url Address for Book Cover Image"
+                value={this.state.bookImage}
+                onChange={this.imageChange}
+              />
             </div>
           </form>
           <div className="button-container">
