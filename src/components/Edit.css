@@ -14,8 +14,15 @@
 .search {
   height: 500px;
 }
+.delete-button {
+  margin-top: 10rem;
+}
+
 .button {
-  margin: 5rem;
+  padding: 1rem;
+  background-color: #5eb69d;
+  border-radius: 5px;
+  color: white;
 }
 
 .text-area-container {
@@ -27,4 +34,11 @@
 }
 .form-field-container {
   margin-top: 5rem;
+}
+
+.edit-form {
+  margin-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

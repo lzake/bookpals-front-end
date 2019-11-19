@@ -9,7 +9,12 @@ import Edit from "./components/Edit.js";
 function App() {
   return (
     <Router className="Router">
-      <nav className=" navbar navbar-dark bg-dark">
+      <div className="Book-pals-container">
+        <div className="cover">
+          <h1 className="Book-pals-title">Book Pals </h1>
+        </div>
+      </div>
+      <nav className=" navbar navbar-dark bg">
         <div className="link-container">
           <Link to="/" className="navLink">
             Home
@@ -22,11 +27,6 @@ function App() {
           </Link>
         </div>
       </nav>
-      <div className="Book-pals-container">
-        <div className="cover">
-          <h1 className="Book-pals-title">Book Pals </h1>
-        </div>
-      </div>
 
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Booklist} />

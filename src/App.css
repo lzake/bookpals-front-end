@@ -30,12 +30,14 @@
 .navLink {
   font-size: 3vw;
   padding: 0.5%;
-  color: white;
+  color: #5eb69d;
   margin-right: 10px;
+  font-family: "Merriweather Sans", sans-serif;
 }
 .navLink:hover {
-  color: white;
+  color: #5eb69d;
   text-decoration: underline;
+  font-family: "Pacifico", cursive;
 }
 body {
   background-color: rgba(255, 239, 213, 0.65);

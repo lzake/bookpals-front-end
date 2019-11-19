@@ -15,7 +15,7 @@ class Edit extends Component {
       bookIsbn10: "",
       bookIsbn13: "",
       bookImage: "",
-      selected: "Choose...",
+      selected: "All",
       buttonClass: "hide",
       title: "",
       author: "",
@@ -365,7 +365,7 @@ class Edit extends Component {
             buttonClass={this.state.buttonClass}
             submit={this.submit}
           ></Searchbar>
-          <form>
+          <form className="edit-form">
             <div className="form-group">
               <label htmlFor="exampleFormControlInput1">Title</label>
               <input
@@ -449,7 +449,10 @@ class Edit extends Component {
             </div>
           </form>
           <div className="button-container">
-            <button className="button" onClick={this.editBookByTitle}>
+            <button
+              className="button edit-button"
+              onClick={this.editBookByTitle}
+            >
               Edit Book Info
             </button>
           </div>
@@ -488,7 +491,10 @@ class Edit extends Component {
             ></Searchbar>
 
             <div className="button-container">
-              <button className="button" onClick={this.deleteBookByTitle}>
+              <button
+                className="button delete-button"
+                onClick={this.deleteBookByTitle}
+              >
                 Delete Book
               </button>
             </div>
