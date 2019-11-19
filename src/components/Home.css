@@ -10,16 +10,39 @@
   border-radius: 1rem;
   padding: 5rem 15rem;
 }
-.carousel {
-  width: 500px;
-  height: 100px;
-}
+
 .home-cover-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 .d-block {
-  width: 400px;
-  height: 500px;
+  width: 25rem;
+  height: 32rem;
+}
+.Home-container {
+  position: relative;
+  display: flex;
+  /* opacity: 0.5; */
+}
+.Home-image {
+  height: 38rem;
+  width: 60vw;
+  /* background: blue; */
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+.Home-paragraph-container {
+  width: 25rem;
+  display: flex;
+  justify-content: left;
+  /* background: red; */
+}
+.Home-paragraph {
+  /* background: red; */
+  justify-content: center;
+  margin: 10rem 1rem 0 5rem;
+  font-family: "Merriweather Sans", sans-serif;
 }

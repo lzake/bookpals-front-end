@@ -1,43 +1,21 @@
 import React, { Component } from "react";
 import "./Home.css";
-
+import bookImage from "./—Pngtree—open book_5054230.png";
 class Home extends Component {
   render() {
     return (
-      <div>
-        <div className="intro-container">
-          <h6>
-            Welcome to Book Pals! This site is designed for avid book readers
-            and learners alike. This collection of books is designed so that you
-            can add books that you love to our database. Whether you're looking
-            for the next business book or the perfect thriller checkout what our
-            users are reading right now!
-          </h6>
-        </div>
-        <div className="home-cover-container">
-          <img
-            src="http://covers.openlibrary.org/b/isbn/9780062273123-L.jpg"
-            className="d-block "
-            alt="..."
-          />
-
-          <img
-            src="http://covers.openlibrary.org/b/isbn/9780062857699-L.jpg"
-            className="d-block"
-            alt="..."
-          />
-          <img
-            src="http://covers.openlibrary.org/b/isbn/9780786867301-L.jpg"
-            className="d-block"
-            alt="..."
-          />
-        </div>
-
-        <div className="quote-container">
-          <p className="quote">
-            “The more that you read, the more things you will know. The more
-            that you learn, the more places you’ll go.” – Dr. Seuss
-          </p>
+      <div className="Home">
+        <div className="Home-container">
+          <div className="Home-paragraph-container">
+            <img className="Home-image" src={bookImage} alt="" />
+            <p className="Home-paragraph">
+              <strong>Welcome to Book Pals!</strong> <br /> Whether you've been
+              looking for a new and interesting book to read or you want to
+              share your latest find, Book Pals is for you. A site designed for
+              bookworms and avid readers, Book Pals' collection contains all
+              types of books. Please feel free to add any of your favorites!
+            </p>
+          </div>
         </div>
       </div>
     );

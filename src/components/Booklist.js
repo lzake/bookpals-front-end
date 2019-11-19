@@ -10,7 +10,7 @@ class Booklist extends Component {
     this.state = {
       data: [],
       googleThumbnail: [],
-      selected: "Choose...",
+      selected: "All",
       allBooks: true,
       title: "",
       author: "",
@@ -95,7 +95,7 @@ class Booklist extends Component {
 
   changeSelected(newValue) {
     this.setState({ selected: newValue });
-    if (newValue === "Choose...") {
+    if (newValue === "All") {
       this.setState({ allBooks: true });
     } else {
       this.setState({ allBooks: false });

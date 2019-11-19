@@ -15,5 +15,28 @@
   align-items: flex-end;
 }
 .Book-pals-title {
-  color: gray;
+  color: white;
+  font-family: "Pacifico", cursive;
+  font-size: 4rem;
+}
+/* body {
+  background: #ffdf9e93;
+} */
+
+.link-container {
+  width: 100%;
+}
+
+.navLink {
+  font-size: 3vw;
+  padding: 0.5%;
+  color: white;
+  margin-right: 10px;
+}
+.navLink:hover {
+  color: white;
+  text-decoration: underline;
+}
+body {
+  background-color: rgba(255, 239, 213, 0.65);
 }

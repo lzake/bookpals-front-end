@@ -39,17 +39,17 @@ class Searchbar extends Component {
   }
 
   render() {
-    if (this.props.selected === "Choose...") {
+    if (this.props.selected === "All") {
       return (
         <div className="choose-container">
           <div>
-            <label>Example select</label>
+            <label>Search by Title, Author, or Publisher</label>
             <select
               className="form-control"
               value={this.props.selected}
               onChange={this.handleChange}
             >
-              <option>Choose...</option>
+              <option>All</option>
               <option>Title</option>
               <option>Author</option>
               <option>Publisher</option>
@@ -67,7 +67,7 @@ class Searchbar extends Component {
               value={this.props.selected}
               onChange={this.handleChange}
             >
-              <option>Choose...</option>
+              <option>All</option>
               <option>Title</option>
               <option>Author</option>
               <option>Publisher</option>
@@ -105,7 +105,7 @@ class Searchbar extends Component {
               value={this.props.selected}
               onChange={this.handleChange}
             >
-              <option>Choose...</option>
+              <option>All</option>
               <option>Title</option>
               <option>Author</option>
               <option>Publisher</option>
@@ -143,7 +143,7 @@ class Searchbar extends Component {
               value={this.props.selected}
               onChange={this.handleChange}
             >
-              <option>Choose...</option>
+              <option>All</option>
               <option>Title</option>
               <option>Author</option>
               <option>Publisher</option>
