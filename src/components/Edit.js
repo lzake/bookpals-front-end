@@ -90,7 +90,7 @@ class Edit extends Component {
     ) {
       console.log("Good Job!");
       axios
-        .post("http://localhost:8080/books", {
+        .post("https://bola-api.herokuapp.com/books", {
           title: this.state.bookTitle,
           description: this.state.bookDesc,
           author: this.state.bookAuthor,
@@ -124,21 +124,27 @@ class Edit extends Component {
     evt.preventDefault();
     if (this.state.title) {
       axios
-        .delete(`http://localhost:8080/books/title/${this.state.title}`)
+        .delete(
+          `https://bola-api.herokuapp.com/books/title/${this.state.title}`
+        )
         .then(res => console.log(res))
         .catch(err => console.log(err));
       this.setState({ title: "" });
     }
     if (this.state.author) {
       axios
-        .delete(`http://localhost:8080/books/author/${this.state.author}`)
+        .delete(
+          `https://bola-api.herokuapp.com/books/author/${this.state.author}`
+        )
         .then(res => console.log(res))
         .catch(err => console.log(err));
       this.setState({ author: "" });
     }
     if (this.state.publisher) {
       axios
-        .delete(`http://localhost:8080/books/publisher/${this.state.publisher}`)
+        .delete(
+          `https://bola-api.herokuapp.com/books/publisher/${this.state.publisher}`
+        )
         .then(res => console.log(res))
         .catch(err => console.log(err));
       this.setState({ publisher: "" });
@@ -149,16 +155,19 @@ class Edit extends Component {
   editBookByTitle(evt) {
     console.log("This is working");
     axios
-      .put(`http://localhost:8080/books/title/${this.state.bookTitle}`, {
-        title: this.state.bookTitle,
-        description: this.state.bookDesc,
-        author: this.state.bookAuthor,
-        publisher: this.state.bookPublisher,
-        isbns: [
-          { isbn10: this.state.bookIsbn10, isbn13: this.state.bookIsbn13 }
-        ],
-        image: this.state.bookImage
-      })
+      .put(
+        `https://bola-api.herokuapp.com/books/title/${this.state.bookTitle}`,
+        {
+          title: this.state.bookTitle,
+          description: this.state.bookDesc,
+          author: this.state.bookAuthor,
+          publisher: this.state.bookPublisher,
+          isbns: [
+            { isbn10: this.state.bookIsbn10, isbn13: this.state.bookIsbn13 }
+          ],
+          image: this.state.bookImage
+        }
+      )
       .then(res => console.log(res))
       .catch(err => console.log(err));
     // axios
@@ -180,7 +189,7 @@ class Edit extends Component {
   submit() {
     if (this.state.title !== "") {
       axios
-        .get(`http://localhost:8080/books/title/${this.state.title}`)
+        .get(`https://bola-api.herokuapp.com/books/title/${this.state.title}`)
         .then(res => {
           let bookInfo = res.data[0];
           console.log(bookInfo.title);

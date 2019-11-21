@@ -42,7 +42,7 @@ class Booklist extends Component {
     evt.preventDefault();
     if (this.state.title !== "") {
       axios
-        .get(`http://localhost:8080/books/title/${this.state.title}`)
+        .get(`https://bola-api.herokuapp.com/books/title/${this.state.title}`)
         .then(res => {
           let bookInfo = res.data[0];
           console.log(bookInfo.title);
@@ -60,7 +60,7 @@ class Booklist extends Component {
         });
     } else if (this.state.author !== "") {
       axios
-        .get(`http://localhost:8080/books/author/${this.state.author}`)
+        .get(`https://bola-api.herokuapp.com/books/author/${this.state.author}`)
         .then(res => {
           let bookInfo = res.data[0];
           console.log(bookInfo);
@@ -75,7 +75,9 @@ class Booklist extends Component {
         });
     } else if (this.state.publisher !== "") {
       axios
-        .get(`http://localhost:8080/books/publisher/${this.state.publisher}`)
+        .get(
+          `https://bola-api.herokuapp.com/books/publisher/${this.state.publisher}`
+        )
         .then(res => {
           let bookInfo = res.data[0];
           console.log(bookInfo);
@@ -106,7 +108,7 @@ class Booklist extends Component {
     if (process.env.NODE_ENV === "production") {
       myUrl = process.env.DB_URL;
     } else {
-      myUrl = "http://localhost:8080/books";
+      myUrl = "https://bola-api.herokuapp.com/books";
     }
     let bookData;
     axios
