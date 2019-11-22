@@ -104,12 +104,6 @@ class Booklist extends Component {
     }
   }
   componentDidMount() {
-    let myUrl = "";
-    if (process.env.NODE_ENV === "production") {
-      myUrl = process.env.DB_URL;
-    } else {
-      myUrl = "https://bola-api.herokuapp.com/books";
-    }
     let bookData;
     axios
       .get("https://bola-api.herokuapp.com/books")
