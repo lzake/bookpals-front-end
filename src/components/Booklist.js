@@ -21,7 +21,8 @@ class Booklist extends Component {
       bookPublisher: "",
       bookImage: false,
       bookContainer: "hide",
-      buttonClass: "btn btn-primary searchbar-button"
+      buttonClass: "btn btn-primary searchbar-button",
+      refresh: false
     };
     this.changeSelected = this.changeSelected.bind(this);
     this.changeTitle = this.changeTitle.bind(this);
@@ -31,6 +32,7 @@ class Booklist extends Component {
   }
   changeTitle(newTitle) {
     this.setState({ title: newTitle });
+    this.setState({ allBooks: true });
   }
   changeAuthor(newAuthor) {
     this.setState({ author: newAuthor });
@@ -104,20 +106,19 @@ class Booklist extends Component {
     }
   }
   componentDidMount() {
-    let myUrl = "";
-    if (process.env.NODE_ENV === "production") {
-      myUrl = process.env.DB_URL;
-    } else {
-      myUrl = "https://bola-api.herokuapp.com/books";
-    }
+    let myUrl = "https://bola-api.herokuapp.com/books";
+    // if (process.env.NODE_ENV === "production") {
+    //   myUrl = process.env.DB_URL;
+    // } else {
+    //   myUrl = "https://bola-api.herokuapp.com/books";
+    // }
     let bookData;
     axios
       .get(myUrl)
       .then(res => {
-        // console.log(res);
         bookData = res.data;
         this.setState({ data: bookData });
-        console.log(res.data);
+        console.log(bookData);
       })
 
       .catch(err => {
@@ -126,68 +127,120 @@ class Booklist extends Component {
   }
 
   render() {
-    if (this.state.allBooks === true) {
-      return (
-        <div className="Booklist-container">
-          <Searchbar
-            selected={this.state.selected}
-            changeSelected={this.changeSelected}
-          ></Searchbar>
-
-          <div className="book-container">
-            {this.state.data.map(item => {
-              return (
-                <Book
-                  className="book"
-                  key={item._id}
-                  title={item.title}
-                  author={item.author}
-                  description={item.description}
-                  publisher={item.publisher}
-                  src={
-                    item.image
-                      ? item.image
-                      : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
-                  }
-                ></Book>
-              );
-            })}
-          </div>
-          <div className="button-container"></div>
-        </div>
-      );
-    }
-    if (this.state.allBooks === false) {
-      return (
-        <div>
-          <Searchbar
-            selected={this.state.selected}
-            changeSelected={this.changeSelected}
+    if (this.state.bookData) {
+      let list = this.state.bookData.map(item => {
+        return (
+          <Book
+            className="book"
+            key={item._id}
+            title={item.title}
+            author={item.author}
+            description={item.description}
+            publisher={item.publisher}
             changeTitle={this.changeTitle}
-            changeAuthor={this.changeAuthor}
-            changePublisher={this.changePublisher}
-            submit={this.submit}
-            title={this.state.title}
-            author={this.state.author}
-            publisher={this.state.publisher}
-            buttonClass={this.state.buttonClass}
-          ></Searchbar>
-          <div className={this.state.bookContainer}>
-            <Book
-              title={this.state.bookTitle}
-              author={this.state.bookAuthor}
-              description={this.state.bookDescription}
-              publisher={this.state.bookPublisher}
-              src={
-                this.state.bookImage
-                  ? this.state.bookImage
-                  : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
-              }
-            ></Book>
-          </div>
-        </div>
-      );
+            src={
+              item.image
+                ? item.image
+                : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
+            }
+          ></Book>
+        );
+      });
+      return <div className="indiv-job">{list}</div>;
     }
   }
+  // if (this.state.allBooks === true) {
+  //   return (
+  //     <div className="Booklist-container">
+  //       <Searchbar
+  //         selected={this.state.selected}
+  //         changeSelected={this.changeSelected}
+  //       ></Searchbar>
+
+  //       <div className="book-container">
+  //         {this.state.data.map(item => {
+  //           return (
+  //             <Book
+  //               className="book"
+  //               key={item._id}
+  //               title={item.title}
+  //               author={item.author}
+  //               description={item.description}
+  //               publisher={item.publisher}
+  //               changeTitle={this.changeTitle}
+  //               src={
+  //                 item.image
+  //                   ? item.image
+  //                   : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
+  //               }
+  //             ></Book>
+  //           );
+  //         })}
+  //       </div>
+  //     </div>
+  //   );
+  // }
+  // if (this.state.allBooks === true) {
+  //   return (
+  //     <div className="Booklist-container">
+  //       <Searchbar
+  //         selected={this.state.selected}
+  //         changeSelected={this.changeSelected}
+  //       ></Searchbar>
+
+  //       <div className="book-container">
+  //         {this.state.data.map(item => {
+  //           return (
+  //             <Book
+  //               className="book"
+  //               key={item._id}
+  //               title={item.title}
+  //               author={item.author}
+  //               description={item.description}
+  //               publisher={item.publisher}
+  //               changeTitle={this.changeTitle}
+  //               src={
+  //                 item.image
+  //                   ? item.image
+  //                   : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
+  //               }
+  //             ></Book>
+  //           );
+  //         })}
+  //       </div>
+  //     </div>
+  //   );
+  // }
+  // if (this.state.allBooks === false) {
+  //   return (
+  //     <div>
+  //       <Searchbar
+  //         selected={this.state.selected}
+  //         changeSelected={this.changeSelected}
+  //         changeTitle={this.changeTitle}
+  //         changeAuthor={this.changeAuthor}
+  //         changePublisher={this.changePublisher}
+  //         submit={this.submit}
+  //         title={this.state.title}
+  //         author={this.state.author}
+  //         publisher={this.state.publisher}
+  //         buttonClass={this.state.buttonClass}
+  //       ></Searchbar>
+  //       <div className={this.state.bookContainer}>
+  //         <Book
+  //           title={this.state.bookTitle}
+  //           author={this.state.bookAuthor}
+  //           description={this.state.bookDescription}
+  //           publisher={this.state.bookPublisher}
+  //           src={
+  //             this.state.bookImage
+  //               ? this.state.bookImage
+  //               : "https://timedotcom.files.wordpress.com/2015/06/521811839-copy.jpg?w=412&quality=85"
+  //           }
+  //         ></Book>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 }
 export default Booklist;
