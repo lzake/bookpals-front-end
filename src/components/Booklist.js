@@ -112,7 +112,7 @@ class Booklist extends Component {
     }
     let bookData;
     axios
-      .get(myUrl)
+      .get("https://bola-api.herokuapp.com/books")
       .then(res => {
         // console.log(res);
         bookData = res.data;
