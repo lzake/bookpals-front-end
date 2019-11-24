@@ -1,7 +1,7 @@
 # BookPals 
 
 ## Purpose 
-The purpose of this project was to build out a front end website based on an API I created [here](https://github.com/MobolanleAdebesin/json-api-build). 
+The purpose of this project was to build out a front end website based on an API I created [here](https://github.com/MobolanleAdebesin/bookpals-back-end). 
 
 ## Examples 
 ![Homepage](https://github.com/MobolanleAdebesin/react-mern-project/blob/master/BookPals-HomePage.png)
@@ -24,7 +24,7 @@ Using React, I created BookPals a single page application for book lovers and av
 - Run npm start 
 
 ## Issues 
-If there are any issues or suggestions for ways that I can improve my project please submit them [here](https://github.com/MobolanleAdebesin/react-mern-project/issues)
+If there are any issues or suggestions for ways that I can improve my project please submit them [here](https://github.com/MobolanleAdebesin/bookpals-front-end/issues)
 
 
 
