@@ -24,10 +24,6 @@ class Booklist extends Component {
     };
   }
   componentDidMount() {
-<<<<<<< HEAD
-    let bookData;
-=======
->>>>>>> testing
     axios
       .get("https://bola-api.herokuapp.com/books")
       .then(res => {
