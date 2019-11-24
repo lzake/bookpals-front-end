@@ -12,7 +12,14 @@ class Booklist extends Component {
       index: 0,
       show: false,
       currentIndex: 0,
-      translateValue: 0
+      title: "",
+      desc: "",
+      auth: "",
+      pub: "",
+      isbn10: "",
+      isbn13: "",
+      image: "",
+      id: ""
     };
   }
   componentDidMount() {
@@ -39,6 +46,21 @@ class Booklist extends Component {
       .catch(err => console.log(err));
   };
 
+  getIndex = index => {
+    let book = this.state.bookData[index];
+    console.log(book._id);
+    this.setState({
+      title: `${book.title}`,
+      desc: `${book.description}`,
+      auth: `${book.author}`,
+      pub: `${book.publisher}`,
+      isbn10: `${book.isbns[0].isbn10}`,
+      isbn13: `${book.isbns[0].isbn13}`,
+      image: `${book.image}`,
+      id: `${book._id}`
+    });
+  };
+
   show = () => {
     this.setState({ show: true });
   };
@@ -51,15 +73,14 @@ class Booklist extends Component {
     if (this.state.show) {
       return (
         <div>
-          <Modal hideModal={this.hideModal}></Modal>
+          <Modal hideModal={this.hideModal} {...this.state}></Modal>
           <Slider
             allBooks={this.state.bookData}
             delete={this.delete}
             show={this.show}
-            currentIndex={this.state.currentIndex}
-            translateValue={this.state.translateValue}
             prevSlide={this.prevSlide}
             nextSlide={this.nextSlide}
+            getIndex={this.getIndex}
           ></Slider>
         </div>
       );
@@ -71,6 +92,7 @@ class Booklist extends Component {
             delete={this.delete}
             edit={this.edit}
             show={this.show}
+            getIndex={this.getIndex}
           ></Slider>
         </div>
       );
