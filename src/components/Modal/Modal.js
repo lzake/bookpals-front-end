@@ -5,6 +5,10 @@ class Modal extends Component {
   constructor(props) {
     super(props);
   }
+  handleHide = evt => {
+    evt.preventDefault();
+    this.props.hideModal();
+  };
   render() {
     return (
       <div className="Modal">
@@ -63,7 +67,9 @@ class Modal extends Component {
             />
           </div>
           <div className="Modal-button-container">
-            <button className="btn btn-dark">Close</button>
+            <button className="btn btn-dark" onClick={this.handleHide}>
+              Close
+            </button>
             <button type="submit" className="btn btn-dark">
               Submit
             </button>

@@ -10,7 +10,9 @@ class Booklist extends Component {
     this.state = {
       bookData: [],
       index: 0,
-      show: false
+      show: false,
+      currentIndex: 0,
+      translateValue: 0
     };
   }
   componentDidMount() {
@@ -49,11 +51,16 @@ class Booklist extends Component {
     if (this.state.show) {
       return (
         <div>
-          <Modal></Modal>
+          <Modal hideModal={this.hideModal}></Modal>
           <Slider
             allBooks={this.state.bookData}
             delete={this.delete}
             show={this.show}
+            currentIndex={this.state.currentIndex}
+            translateValue={this.state.translateValue}
+            prevSlide={this.prevSlide}
+            nextSlide={this.nextSlide}
+            slid
           ></Slider>
         </div>
       );
@@ -65,6 +72,10 @@ class Booklist extends Component {
             delete={this.delete}
             edit={this.edit}
             show={this.show}
+            currentIndex={this.state.currentIndex}
+            translateValue={this.state.translateValue}
+            prevSlide={this.prevSlide}
+            nextSlide={this.nextSlide}
           ></Slider>
         </div>
       );
