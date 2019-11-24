@@ -9,7 +9,8 @@ class Slider extends Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      translateValue: 0
+      translateValue: 0,
+      info: "show"
     };
   }
   handleDelete = () => {
@@ -47,34 +48,81 @@ class Slider extends Component {
   slideWidth = () => {
     return document.querySelector(".slide").clientWidth;
   };
+  showInfo = () => {
+    this.props.getIndex(this.state.currentIndex);
+    this.props.changeInfo();
+  };
   render() {
-    return (
-      <div className="slider">
-        <div
-          className="slider-wrapper"
-          style={{
-            transform: `translateX(${this.state.translateValue}px)`,
-            transition: `transform ease-out 0.45s`
-          }}
-        >
-          {this.props.allBooks.map((book, i) => (
-            <Slide key={i} image={book} />
-          ))}
+    if (this.state.info === "hide") {
+      return (
+        <div className="slider">
+          <div
+            className="slider-wrapper"
+            style={{
+              transform: `translateX(${this.state.translateValue}px)`,
+              transition: `transform ease-out 0.45s`
+            }}
+          >
+            {this.props.allBooks.map((book, i) => (
+              <Slide key={i} image={book} />
+            ))}
+          </div>
+          <div className="slider-arrow-container">
+            <LeftArrow prevSlide={this.prevSlide}></LeftArrow>
+            <RightArrow nextSlide={this.nextSlide}></RightArrow>
+          </div>
+          <div className="slider-button-container">
+            <button className="slider-buttons" onClick={this.handleShow}>
+              Edit
+            </button>
+            <button className="slider-buttons" onClick={this.handleDelete}>
+              Delete
+            </button>
+            <button>Info </button>
+          </div>
         </div>
-        <div className="slider-arrow-container">
-          <LeftArrow prevSlide={this.prevSlide}></LeftArrow>
-          <RightArrow nextSlide={this.nextSlide}></RightArrow>
+      );
+    } else {
+      return (
+        <div className="slider">
+          <div
+            className="slider-wrapper"
+            style={{
+              transform: `translateX(${this.state.translateValue}px)`,
+              transition: `transform ease-out 0.45s`
+            }}
+          >
+            {this.props.allBooks.map((book, i) => (
+              <Slide key={i} image={book} />
+            ))}
+          </div>
+          <div className="slider-arrow-container">
+            <LeftArrow prevSlide={this.prevSlide}></LeftArrow>
+            <RightArrow nextSlide={this.nextSlide}></RightArrow>
+          </div>
+          <div className="slider-button-container">
+            <button
+              className="btn btn-dark slider-buttons"
+              onClick={this.handleShow}
+            >
+              Edit
+            </button>
+            <button
+              className="btn btn-dark slider-buttons"
+              onClick={this.showInfo}
+            >
+              Info
+            </button>
+            <button
+              className=" btn btn-dark slider-buttons"
+              onClick={this.handleDelete}
+            >
+              Delete
+            </button>
+          </div>
         </div>
-        <div className="slider-button-container">
-          <button className="slider-buttons" onClick={this.handleShow}>
-            Edit
-          </button>
-          <button className="slider-buttons" onClick={this.handleDelete}>
-            Delete
-          </button>
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
