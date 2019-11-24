@@ -138,6 +138,9 @@ class AddBook extends Component {
             >
               Submit
             </button>
+            <button className="btn btn-dark" onClick={this.redirectToTarget}>
+              Close
+            </button>
           </div>
         </form>
       </div>
