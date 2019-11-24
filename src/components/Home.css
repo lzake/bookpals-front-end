@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background-image: linear-gradient(to right top, #f26e92 0%, #fff46a 100%);
   justify-content: space-around;
-  margin: 5rem 15rem;
+  margin: 5rem 10rem;
   border-radius: 1rem;
   box-shadow: 0 5px 2rem 0 rgba(0, 0, 0, 0.25);
   transition: transform 300ms;
