@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Booklist.css";
 import axios from "axios";
 import Modal from "./Modal/Modal.js";
-// import Book from "./Book.js";
 import Slider from "./carousel/Slider.js";
 class Booklist extends Component {
   constructor(props) {

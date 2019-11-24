@@ -4,7 +4,6 @@ import "./App.css";
 import Home from "./components/Home.js";
 import Booklist from "./components/Booklist.js";
 import AddBook from "./components/AddBook.js";
-import Book from "./components/Book.js";
 
 function App() {
   return (
@@ -33,7 +32,6 @@ function App() {
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Booklist} />
       <Route path="/books/add" render={props => <AddBook {...props} />} />
-      <Route path="/books/id/:id" render={props => <Book />}></Route>
     </Router>
   );
 }
