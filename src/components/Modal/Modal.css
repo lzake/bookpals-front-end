@@ -1,0 +1,18 @@
+.Modal {
+  height: 50rem;
+  width: 50rem;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: absolute;
+  left: 35rem;
+  z-index: 1;
+  border-radius: 12px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-control {
+  width: 20rem;
+}

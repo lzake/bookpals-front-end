@@ -1,44 +1,87 @@
-.Book-pals-container {
-  background: url(./book-banner.jpg);
-  height: 20vh;
-  display: flex;
-
-  justify-content: left;
-  align-items: flex-end;
-}
-.cover {
-  background: black;
+body {
   height: 100%;
-  width: 100%;
-  opacity: 0.6;
+  background: rgba(255, 239, 213, 0.568);
+}
+.Bookpals-wrapper {
   display: flex;
-  align-items: flex-end;
+  /* background-color: blue; */
 }
-.Book-pals-title {
-  color: white;
-  font-family: "Pacifico", cursive;
+.Bookpals-circle-container {
+  display: flex;
+  position: relative;
+}
+.Bookpals-circle {
+  border-radius: 100%;
+  /* border: 1px solid black; */
+  position: absolute;
+  box-shadow: inset 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.yellow {
+  height: 15rem;
+  width: 15rem;
+  background-color: yellow;
+  top: -1rem;
+  left: 3rem;
+}
+.pink {
+  background-color: #f26e92;
+  top: 4rem;
+  left: -1rem;
+  height: 10rem;
+  width: 10rem;
+}
+.white {
+  background-color: white;
+  top: -5rem;
+  left: -3rem;
+  height: 12rem;
+  width: 12rem;
+}
+.Bookpals-title {
+  font-family: "Pacifico", sans-serif;
+  position: absolute;
+  top: 2rem;
+  left: 7rem;
   font-size: 4rem;
+  /* background-color: red; */
 }
-/* body {
-  background: #ffdf9e93;
-} */
-
-.link-container {
-  width: 100%;
+.nav-container {
+  /* background-color: red; */
+  height: 15vh;
+  display: flex;
+  justify-content: flex-end;
 }
-
+.navbar {
+  font-size: 2rem;
+  margin-right: 10rem;
+  margin-top: 1rem;
+  mask-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 25%,
+    #ffffff 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1),
+    inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
 .navLink {
-  font-size: 3vw;
-  padding: 0.5%;
-  color: #5eb69d;
-  margin-right: 10px;
-  font-family: "Merriweather Sans", sans-serif;
+  margin: 5rem;
+  color: black;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.2) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 .navLink:hover {
-  color: #5eb69d;
-  text-decoration: underline;
-  font-family: "Pacifico", cursive;
+  font-family: "Pacifico", sans-serif;
 }
-body {
-  background-color: rgba(255, 239, 213, 0.65);
+.Bookpals-circle-2 {
+  position: absolute;
+  border-radius: 100%;
+  top: 55rem;
+  left: 90%;
 }

@@ -2,35 +2,38 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home.js";
-
 import Booklist from "./components/Booklist.js";
-import Edit from "./components/Edit.js";
+import AddBook from "./components/AddBook.js";
+import Book from "./components/Book.js";
 
 function App() {
   return (
     <Router className="Router">
-      <div className="Book-pals-container">
-        <div className="cover">
-          <h1 className="Book-pals-title">Book Pals </h1>
-        </div>
+      <div className="Bookpals-circle-container">
+        <div className="Bookpals-circle yellow"></div>
+        <div className="Bookpals-circle pink"></div>
+        <div className="Bookpals-circle white"></div>
+        <h1 className="Bookpals-title">Book Pals </h1>
       </div>
-      <nav className=" navbar navbar-dark bg">
-        <div className="link-container">
-          <Link to="/" className="navLink">
-            Home
-          </Link>
-          <Link to="/books" className="navLink">
-            Books
-          </Link>
-          <Link to="/books/edit" className="navLink">
-            Edit
-          </Link>
-        </div>
-      </nav>
-
+      <div className="nav-container">
+        <nav className=" navbar">
+          <div className="link-container">
+            <Link to="/" className="navLink">
+              Home
+            </Link>
+            <Link to="/books" className="navLink">
+              Books
+            </Link>
+            <Link to="/books/add" className="navLink">
+              Add Books
+            </Link>
+          </div>
+        </nav>
+      </div>
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Booklist} />
-      <Route path="/books/Edit" exact component={Edit}></Route>
+      <Route path="/books/add" render={props => <AddBook {...props} />} />
+      <Route path="/books/id/:id" render={props => <Book />}></Route>
     </Router>
   );
 }
