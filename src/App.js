@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home.js";
 import Booklist from "./components/Booklist.js";
+import AddBook from "./components/AddBook.js";
 
 function App() {
   return (
@@ -22,11 +23,15 @@ function App() {
             <Link to="/books" className="navLink">
               Books
             </Link>
+            <Link to="/books/add" className="navLink">
+              Add Books
+            </Link>
           </div>
         </nav>
       </div>
       <Route path="/" exact component={Home} />
       <Route path="/books" exact component={Booklist} />
+      <Route path="/books/add" render={props => <AddBook {...props} />} />
     </Router>
   );
 }
