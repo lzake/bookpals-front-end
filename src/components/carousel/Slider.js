@@ -3,13 +3,21 @@ import Slide from "./Slide.js";
 import LeftArrow from "./LeftArrow.js";
 import RightArrow from "./RightArrow.js";
 import "./Slider.css";
+import Axios from "axios";
 
 class Slider extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentIndex: 0,
-      translateValue: 0
+      translateValue: 0,
+      title: "",
+      desc: "",
+      auth: "",
+      pub: "",
+      isbn10: "",
+      isbn13: "",
+      image: ""
     };
   }
   handleDelete = () => {

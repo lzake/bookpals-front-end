@@ -60,7 +60,6 @@ class Booklist extends Component {
             translateValue={this.state.translateValue}
             prevSlide={this.prevSlide}
             nextSlide={this.nextSlide}
-            slid
           ></Slider>
         </div>
       );
@@ -72,10 +71,6 @@ class Booklist extends Component {
             delete={this.delete}
             edit={this.edit}
             show={this.show}
-            currentIndex={this.state.currentIndex}
-            translateValue={this.state.translateValue}
-            prevSlide={this.prevSlide}
-            nextSlide={this.nextSlide}
           ></Slider>
         </div>
       );
