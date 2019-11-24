@@ -1,48 +1,37 @@
-.intro-container {
-  background: lightblue;
-  margin: 1rem;
-  border-radius: 1rem;
-  padding: 5rem 10rem;
-}
-.quote-container {
-  background: lightblue;
-  margin: 1rem;
-  border-radius: 1rem;
-  padding: 5rem 15rem;
-}
-
-.home-cover-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.d-block {
-  width: 25rem;
-  height: 32rem;
-}
 .Home-container {
-  position: relative;
-  display: flex;
-  /* opacity: 0.5; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-image: linear-gradient(to right top, #f26e92 0%, #fff46a 100%);
+  justify-content: space-around;
+  margin: 5rem 15rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 2rem 0 rgba(0, 0, 0, 0.25);
+  transition: transform 300ms;
 }
-.Home-image {
-  height: 38rem;
-  width: 60vw;
-  /* background: blue; */
-  position: absolute;
-  right: 0;
-  z-index: -1;
+.Home-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 2rem 60px rgba(0, 0, 0, 0.25);
 }
-
-.Home-paragraph-container {
-  width: 25rem;
-  display: flex;
-  justify-content: left;
-  /* background: red; */
+.Home-title-container {
+  justify-content: center;
+}
+.Home-greeting {
+  margin-top: 17rem;
+  margin-left: 5rem;
+}
+.Home-title {
+  font-family: "Pacifico", sans-serif;
 }
 .Home-paragraph {
-  /* background: red; */
-  justify-content: center;
-  margin: 10rem 1rem 0 5rem;
-  font-family: "Merriweather Sans", sans-serif;
+  /* background-color: blue; */
+  height: 20rem;
+  width: 25rem;
+}
+
+.Home-image {
+  /* background-color: red; */
+  height: 50rem;
+  width: 50rem;
+  margin-top: 1rem;
+  margin-left: 7rem;
 }

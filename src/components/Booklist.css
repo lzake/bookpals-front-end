@@ -1,13 +1,10 @@
-.button-container {
+.Booklist-title {
+}
+.Booklist-image {
+  height: 25rem;
+  width: 16.5rem;
+}
+.Booklist-books {
+  background-color: orange;
   display: flex;
-  justify-content: center;
-}
-.Booklist-container {
-  padding-top: 2rem;
-}
-.book-container {
-  margin-top: 15rem;
-}
-.hide {
-  display: none;
 }
