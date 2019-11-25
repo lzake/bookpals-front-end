@@ -105,15 +105,15 @@ class Booklist extends Component {
             changeInfo={this.changeInfo}
           ></Slider>
           <div className="bookInfo">
-            <h1>Title: {this.state.title}</h1>
-            <h3>Author: {this.state.auth}</h3>
-            <h3 className="Booklist-description">
+            <h3>Title: {this.state.title}</h3>
+            <h4>Author: {this.state.auth}</h4>
+            <h5 className="Booklist-description">
               Description: <br />
               {this.state.desc}
-            </h3>
-            <h3>Publisher: {this.state.pub}</h3>
-            <h3> isbn10: {this.state.isbn10}</h3>
-            <h3>isbn13: {this.state.isbn13}</h3>
+            </h5>
+            <h5>Publisher: {this.state.pub}</h5>
+            <h5> isbn10: {this.state.isbn10}</h5>
+            <h5>isbn13: {this.state.isbn13}</h5>
             <button className="btn btn-dark" onClick={this.hideInfo}>
               Close
             </button>
