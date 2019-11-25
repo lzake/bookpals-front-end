@@ -5,7 +5,7 @@ import bookImage from "./—Pngtree—open book_5054230.png";
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="Home">
         <div className="Home-container">
           <div className="Home-greeting">
             <h1 className="Home-title">Welcome!</h1>

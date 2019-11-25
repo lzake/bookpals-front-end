@@ -22,3 +22,16 @@
 .Booklist-description {
   padding: 2rem;
 }
+
+@media screen and (max-width: 500px) {
+  .bookInfo {
+    left: 0;
+    margin-left: -3rem;
+    height: 50rem;
+    width: 35rem;
+    padding: 10rem;
+  }
+  .Booklist-description {
+    padding: 0;
+  }
+}

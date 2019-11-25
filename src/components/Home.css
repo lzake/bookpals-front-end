@@ -23,7 +23,6 @@
   font-family: "Pacifico", sans-serif;
 }
 .Home-paragraph {
-  /* background-color: blue; */
   height: 20rem;
   width: 25rem;
 }
@@ -34,4 +33,33 @@
   width: 37.5rem;
   margin-top: 1rem;
   margin-left: 0rem;
+}
+@media screen and (max-width: 500px) {
+  .Home {
+    width: 18.75rem;
+    margin: 0 0 0 5.25rem;
+  }
+  .Home-greeting {
+    margin-top: 3rem;
+    margin-left: 9rem;
+  }
+  .Home-container {
+    width: 500px;
+    margin: 7rem -5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .Home-image-container {
+    margin-top: -18rem;
+  }
+  .Home-image {
+    height: 50rem;
+    width: 20rem;
+    margin-top: 1rem;
+    margin-left: 7rem;
+  }
+  .Home-paragraph {
+    height: 20rem;
+    width: 18rem;
+  }
 }

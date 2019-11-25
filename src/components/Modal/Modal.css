@@ -17,3 +17,16 @@
 .form-control {
   width: 20rem;
 }
+
+@media screen and (max-width: 500px) {
+  .Modal {
+    height: 35rem;
+    width: 25rem;
+    background-color: rgb(0, 0, 0, 0.7);
+    position: absolute;
+    left: 3.5rem;
+    z-index: 1;
+    border-radius: 12px;
+    color: white;
+  }
+}

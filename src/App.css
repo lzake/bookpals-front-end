@@ -40,13 +40,11 @@ body {
 .Bookpals-title {
   font-family: "Pacifico", sans-serif;
   position: absolute;
-  top: 2rem;
+  top: 1.5rem;
   left: 7rem;
   font-size: 4rem;
-  /* background-color: red; */
 }
 .nav-container {
-  /* background-color: red; */
   height: 15vh;
   display: flex;
   justify-content: flex-end;
@@ -84,4 +82,36 @@ body {
   border-radius: 100%;
   top: 55rem;
   left: 90%;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-container {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    margin-left: -2rem;
+  }
+  .navbar {
+    margin-right: 0;
+    margin-top: 4rem;
+  }
+
+  .Bookpals-circle {
+    display: none;
+  }
+  .Bookpals-title {
+    left: -3rem;
+    font-size: 2.5rem;
+  }
+
+  .Bookpals-circle-container {
+    display: flex;
+    position: relative;
+    left: 6rem;
+  }
+  .navLink {
+    margin: 1.5rem;
+    color: black;
+    font-size: 1.5rem;
+  }
 }
