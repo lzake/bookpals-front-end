@@ -1,7 +1,7 @@
 .slider {
   position: relative;
-  width: 700px;
-  margin: 10rem auto;
+  /* width: 700px; */
+  /* margin: 10rem auto; */
   overflow: hidden;
   white-space: nowrap;
   border-radius: 1rem;
@@ -15,10 +15,10 @@
 }
 .slider-wrapper {
   position: relative;
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
-  margin-left: 13rem;
-  margin-top: 5rem;
+  /* margin-left: 13rem;
+  margin-top: 5rem; */
 }
 .slider-arrow-container {
   display: flex;
@@ -38,7 +38,7 @@
   color: white;
 }
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
   .slider {
     width: 500px;
     margin: 5rem 0.25rem;
@@ -60,4 +60,4 @@
     z-index: 1;
     height: 100px;
   }
-}
+} */

@@ -1,14 +1,6 @@
-body {
-  height: 100%;
-  background: rgba(255, 239, 213, 0.568);
-}
-.Bookpals-wrapper {
-  display: flex;
-  /* background-color: blue; */
-}
 .Bookpals-circle-container {
-  display: flex;
   position: relative;
+  height: 3.5rem;
 }
 .Bookpals-circle {
   border-radius: 100%;
@@ -40,19 +32,15 @@ body {
 .Bookpals-title {
   font-family: "Pacifico", sans-serif;
   position: absolute;
-  top: 1.5rem;
-  left: 7rem;
-  font-size: 4rem;
+  top: 1rem;
+  left: 1rem;
 }
 .nav-container {
-  height: 15vh;
-  display: flex;
-  justify-content: flex-end;
+  width: 100%;
 }
 .navbar {
+  /* width: 65%; */
   font-size: 2rem;
-  margin-right: 10rem;
-  margin-top: 1rem;
   mask-image: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
@@ -63,8 +51,12 @@ body {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1),
     inset 0 0 1px rgba(255, 255, 255, 0.6);
 }
+.link-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 .navLink {
-  margin: 5rem;
   color: black;
   background: linear-gradient(
     90deg,
@@ -73,6 +65,7 @@ body {
     rgba(255, 255, 255, 0.2) 75%,
     rgba(255, 255, 255, 0) 100%
   );
+  font-size: 1.5rem;
 }
 .navLink:hover {
   font-family: "Pacifico", sans-serif;
@@ -82,36 +75,4 @@ body {
   border-radius: 100%;
   top: 55rem;
   left: 90%;
-}
-
-@media screen and (max-width: 500px) {
-  .nav-container {
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    margin-left: -2rem;
-  }
-  .navbar {
-    margin-right: 0;
-    margin-top: 4rem;
-  }
-
-  .Bookpals-circle {
-    display: none;
-  }
-  .Bookpals-title {
-    left: -3rem;
-    font-size: 2.5rem;
-  }
-
-  .Bookpals-circle-container {
-    display: flex;
-    position: relative;
-    left: 6rem;
-  }
-  .navLink {
-    margin: 1.5rem;
-    color: black;
-    font-size: 1.5rem;
-  }
 }
