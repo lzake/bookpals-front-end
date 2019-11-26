@@ -9,13 +9,13 @@ function App() {
   return (
     <Router className="Router">
       <div className="Bookpals-circle-container">
-        <div className="Bookpals-circle yellow"></div>
+        {/* <div className="Bookpals-circle yellow"></div>
         <div className="Bookpals-circle pink"></div>
-        <div className="Bookpals-circle white"></div>
-        <h1 className="Bookpals-title">Book Pals </h1>
+        <div className="Bookpals-circle white"></div> */}
+        <h1 className="Bookpals-title">Book Pals</h1>
       </div>
       <div className="nav-container">
-        <nav className=" navbar">
+        <nav className="navbar">
           <div className="link-container">
             <Link to="/" className="navLink">
               Home
