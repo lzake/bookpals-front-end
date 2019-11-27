@@ -80,7 +80,7 @@ class Booklist extends Component {
     console.log(this.state.bookData);
     if (this.state.show) {
       return (
-        <div className='booklist'>
+        <div className="booklist">
           <Modal hideModal={this.hideModal} {...this.state}></Modal>
           <Slider
             allBooks={this.state.bookData}
@@ -95,7 +95,7 @@ class Booklist extends Component {
       );
     } else if (!this.state.show && this.state.info !== "hide") {
       return (
-        <div className='booklist'>
+        <div className="booklist">
           <Slider
             allBooks={this.state.bookData}
             delete={this.delete}
@@ -105,8 +105,8 @@ class Booklist extends Component {
             changeInfo={this.changeInfo}
           ></Slider>
           <div className="bookInfo">
-            <h3>Title: {this.state.title}</h3>
-            <h4>Author: {this.state.auth}</h4>
+            <h4>Title: {this.state.title}</h4>
+            <h5>Author: {this.state.auth}</h5>
             <h5 className="Booklist-description">
               Description: <br />
               {this.state.desc}
@@ -122,7 +122,7 @@ class Booklist extends Component {
       );
     } else if (!this.state.show) {
       return (
-        <div className='booklist'>
+        <div className="booklist">
           <Slider
             allBooks={this.state.bookData}
             delete={this.delete}
