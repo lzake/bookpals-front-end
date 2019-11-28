@@ -15,10 +15,8 @@
 }
 .slider-wrapper {
   position: relative;
-  /* height: 100%; */
   width: 100%;
-  /* margin-left: 13rem;
-  margin-top: 5rem; */
+  margin-top: 5rem;
 }
 .slider-arrow-container {
   display: flex;
