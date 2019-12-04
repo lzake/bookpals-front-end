@@ -8,6 +8,7 @@ class Booklist extends Component {
     super(props);
     this.state = {
       bookData: [],
+      dataLoaded: false,
       index: 0,
       show: false,
       currentIndex: 0,
@@ -27,8 +28,8 @@ class Booklist extends Component {
       .get("https://bola-api.herokuapp.com/books")
       .then(res => {
         let allBooks = res.data;
-        console.log(allBooks[0]);
-        this.setState({ bookData: allBooks });
+      // below ensures that the page doesnt show a book slide before any data exists
+        this.setState({ bookData: allBooks, dataLoaded: res.data.length > 0 ? true : false });
       })
       .catch(err => {
         console.log(err);
@@ -48,7 +49,6 @@ class Booklist extends Component {
 
   getIndex = index => {
     let book = this.state.bookData[index];
-    console.log(book._id);
     this.setState({
       title: `${book.title}`,
       desc: `${book.description}`,
@@ -77,7 +77,13 @@ class Booklist extends Component {
   };
 
   render() {
-    console.log(this.state.bookData);
+    if (this.state.show) {
+      return (
+        <div className="booklist">
+          Loading :)
+        </div>
+      );
+    }
     if (this.state.show) {
       return (
         <div className="booklist">
